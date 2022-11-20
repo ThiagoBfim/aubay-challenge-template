@@ -23,8 +23,28 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
+
+<script>
+    $.ajax({
+        type: 'GET',
+        url: 'https://employee-message-thiagobfim-dev.apps.sandbox.x8i5.p1.openshiftapps.com/api/v1/messages',
+        dataType: "json",
+        crossDomain: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        },
+        contentType: 'application/json',
+        success: function(resp){
+            console.log(resp);
+        },
+        error:function(error){
+            console.log('message Error' + JSON.stringify(error));
+        }
+    });
+</script>
 
 <body id="page-top">
 
